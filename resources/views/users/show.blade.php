@@ -32,7 +32,12 @@
                     <form action="{{ route('users.delete', $users->id) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Delete</button>
+                        <button type="submit" value="delete">Delete</button>
+                    </form>
+                    <form action="{{ route('users.edit', $users->id) }}" method="get">
+                        @csrf
+                        @method('PUT')
+                        <button>Edit</button>
                     </form>
                 </td>
             </tr>

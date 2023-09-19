@@ -17,7 +17,8 @@ class BooksFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->title(),
+            'author' => fake()->text(),
         ];
     }
 }
