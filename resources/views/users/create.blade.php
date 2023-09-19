@@ -8,5 +8,25 @@
 </head>
 <body>
     
+    <form action="{{ route('users.store') }}" method="post">
+        @csrf
+        <div>
+            <label for="name">Nom d'utilisateur</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email">
+        </div>
+        <div>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password">
+        </div>
+
+        <div>
+            <button type="submit">Enregistrer</button>
+        </div>
+    </form>
+
 </body>
 </html>
