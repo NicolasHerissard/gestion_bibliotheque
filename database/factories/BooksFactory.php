@@ -19,6 +19,8 @@ class BooksFactory extends Factory
         return [
             'title' => fake()->title(),
             'author' => fake()->text(),
+            'content' => fake()->text(),
+            'published_at' => now(),
         ];
     }
 }

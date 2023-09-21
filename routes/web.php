@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UserController;
+use Illuminate\Routing\RouteUri;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +31,10 @@ Route::prefix('/users')->name('users.')->group(function() {
 
 Route::prefix('/books')->name('books.')->group(function() {
     Route::get('/show', [BooksController::class, 'show'])->name('show');
+    Route::get('/showBook/{id}', [BooksController::class, 'showOne'])->name('showBook');
     Route::get('/create', [BooksController::class, 'create'])->name('create');
+    Route::post('/store', [BooksController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [BooksController::class, 'edit'])->name('edit');
+    Route::put('/update/{id}', [BooksController::class, 'update'])->name('update');
+    Route::delete('/delete/{id}', [BooksController::class, 'delete'])->name('delete');
 });

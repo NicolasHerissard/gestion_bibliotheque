@@ -10,9 +10,13 @@ class Books extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         "title",
         "author",
+        "content",
+        "published_at"
     ];
 
     public function books() : HasMany
