@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books_users', function (Blueprint $table) {
+        Schema::create('books_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_users');
-            $table->foreign('id_users')->references('id')->on('users');
-            $table->unsignedBigInteger('id_books');
-            $table->foreign('id_books')->references('id')->on('books');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('books_id');
+            $table->foreign('books_id')->references('id')->on('books');
             $table->timestamp('take_at');
             $table->dateTime('render_at');
         });

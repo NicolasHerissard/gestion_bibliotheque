@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\BooksUserController;
 use App\Http\Controllers\UserController;
 use Illuminate\Routing\RouteUri;
 use Illuminate\Support\Facades\Route;
@@ -37,4 +38,9 @@ Route::prefix('/books')->name('books.')->group(function() {
     Route::get('/edit/{id}', [BooksController::class, 'edit'])->name('edit');
     Route::put('/update/{id}', [BooksController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [BooksController::class, 'delete'])->name('delete');
+});
+
+Route::prefix('/booksUser')->name('booksUser.')->group(function() {
+    Route::get('/show', [BooksUserController::class, 'showBooksUser'])->name('showBooksUser');
+    Route::post('/store', [BooksUserController::class, 'storeBooksUser'])->name('storeBooksUser');
 });

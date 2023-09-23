@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('books', function(BluePrint $table) {
             $table->id();
             $table->string('title', 100);
-            $table->string('author', 100);
+            $table->string('author', 255);
             $table->text('content');
             $table->timestamp('published_at');
         });

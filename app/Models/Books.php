@@ -19,8 +19,8 @@ class Books extends Model
         "published_at"
     ];
 
-    public function books() : HasMany
+    public function users() : HasMany
     {
-        return $this->hasMany(Books::class);
+        return $this->hasMany(User::class);
     }
 }
