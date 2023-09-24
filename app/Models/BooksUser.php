@@ -20,14 +20,14 @@ class BooksUser extends Model
         "books_id",
         "render_at",
     ];
-
+    
     public function users(): HasMany
     {
-        return $this->HasMany(User::class);
+        return $this->HasMany(User::class, 'user_id', 'id');
     }
 
     public function books(): BelongsToMany
     {
-        return $this->BelongsToMany(Book::class);
+        return $this->BelongsToMany(Books::class, 'books_id', 'id');
     }
 }

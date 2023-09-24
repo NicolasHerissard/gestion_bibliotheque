@@ -11,7 +11,8 @@ class BooksUserController extends Controller
 {
     public function showBooksUser()
     {
-        $books_users = BooksUser::all();
+        $books_users = new BooksUser();
+        $books_users->users();
 
         return view('booksUser.showBooksUser', [
             'books_users' => $books_users
@@ -27,15 +28,15 @@ class BooksUserController extends Controller
         if($user_id != "" && $books_id != "" && $render_at != "")
         {
             BooksUser::create([
-                'user_id' => $request->input('user_id'),
-                'books_id' => $request->input('books_id'),
-                'render_at' => $request->input('render_at'),
+                'user_id' => $user_id,
+                'books_id' => $books_id,
+                'render_at' => $render_at,
             ]);
 
-            return redirect()->route('booksUser.showBooksUser')->with("erreur", "Informations manquantes");
+            return redirect()->route('booksUser.showBooksUser')->with("success", "Livre emprunté");
         }
 
-        return redirect()->route('users.show');
+        return redirect()->route('users.show')->with("erreur", "Informations manquantes");
     }
 
     public function createBooksUser()
@@ -47,5 +48,13 @@ class BooksUserController extends Controller
             'books' => $books,
             'users' => $users
         ]);
+    }
+
+    public function deleteBooksUser($id)
+    {
+        $books_users = BooksUser::find($id);
+        $books_users->delete();
+
+        return redirect()->route('booksUser.showBooksUser')->with('success', 'Emprunt terminé');
     }
 }

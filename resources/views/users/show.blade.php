@@ -9,13 +9,14 @@
 <body>
 
     <h1>Utilisateurs</h1>
-    <a href="{{ route('users.create') }}">Créer un utilisateur</a>
 
-    @if (Session::get('erreur'))
-        <div class="erreur">
-            {{ Session::get('erreur') }}
-        </div>
+    @if (Session::has('erreur') || Session::has('success'))
+    <div class="erreur">
+        {{ Session::get('erreur') || Session::get('success')}}
+    </div>
     @endif
+
+    <a href="{{ route('users.create') }}">Créer un utilisateur</a>
 
     <table>
         <thead>

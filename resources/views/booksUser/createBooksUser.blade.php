@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Emprunt</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
         
         <div class="list_users">
             <label for="name">Utilisateur :</label>
-            <select name="user_id">
+            <select name="user_id" id="">
                 <option value="">Aucun sélectionné</option>
                 @foreach($users as $user)
                 <option value="{{ $user->id }}">{{ $user->name }}</option>

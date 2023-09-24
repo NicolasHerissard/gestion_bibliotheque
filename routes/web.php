@@ -44,4 +44,5 @@ Route::prefix('/booksUser')->name('booksUser.')->group(function() {
     Route::get('/show', [BooksUserController::class, 'showBooksUser'])->name('showBooksUser');
     Route::get('/create', [BooksUserController::class, 'createBooksUser'])->name('createBooksUser');
     Route::post('/store', [BooksUserController::class, 'storeBooksUser'])->name('storeBooksUser');
+    Route::delete('/delete/{id}', [BooksUserController::class, 'deleteBooksUser'])->name('deleteBooksUser');
 });
