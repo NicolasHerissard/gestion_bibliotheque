@@ -11,6 +11,12 @@
     <h1>Utilisateurs</h1>
     <a href="{{ route('users.create') }}">Créer un utilisateur</a>
 
+    @if (Session::get('erreur'))
+        <div class="erreur">
+            {{ Session::get('erreur') }}
+        </div>
+    @endif
+
     <table>
         <thead>
             <tr>
